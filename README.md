@@ -1,2 +1,3 @@
-# ddd-module-template
-DDD Module Template
+# ddd-mod-covid19
+
+DDD Module: Covid19
