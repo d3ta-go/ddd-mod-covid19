@@ -53,6 +53,8 @@ github.com/d3ta-go/connector-covid19 v0.0.0-20201105124649-7401edf2b354/go.mod h
 github.com/d3ta-go/system v0.0.0-20201106120811-a4eb7f10e7fb h1:LeplGKkcBO4T/5IrQ/RGJQlr8agTH6qqRF7KIn77pj0=
 github.com/d3ta-go/system v0.0.0-20201106123628-8948df581151 h1:xd4fmkt59N60mbncP/WOk6i4ImLpZ3/xBEIjmLQjCj8=
 github.com/d3ta-go/system v0.0.0-20201106123628-8948df581151/go.mod h1:u2svq1ufT7phkHzFSU/9J7QGWqYcuDIr6t48+Vl5tRs=
+github.com/d3ta-go/system v0.0.0-20201106132232-4d7b9aff5016 h1:9N5VQcAHAGZUD8WnejpA3GUKrkl/8v3QIwppfN3deDg=
+github.com/d3ta-go/system v0.0.0-20201106132232-4d7b9aff5016/go.mod h1:u2svq1ufT7phkHzFSU/9J7QGWqYcuDIr6t48+Vl5tRs=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/denisenkom/go-mssqldb v0.0.0-20200428022330-06a60b6afbbc/go.mod h1:xbL0rPBG9cCiLr28tMa8zpbdarY27NDyej4t/EjAShU=
