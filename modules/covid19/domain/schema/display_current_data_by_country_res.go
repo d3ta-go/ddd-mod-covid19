@@ -56,8 +56,8 @@ type DayData struct {
 
 // TotalData represent Total Data
 type TotalData struct {
-	Death                     int64 `json:"death"`
-	Confirmed                 int64 `json:"confirmed"`
-	RegionCumulativeDeath     int64 `json:"regionCumulativeDeath"`
-	RegionCumulativeConfirmed int64 `json:"regionCumulativeConfirmed"`
+	Death                     interface{} `json:"death"`
+	Confirmed                 interface{} `json:"confirmed"`
+	RegionCumulativeDeath     interface{} `json:"regionCumulativeDeath"`
+	RegionCumulativeConfirmed interface{} `json:"regionCumulativeConfirmed"`
 }
