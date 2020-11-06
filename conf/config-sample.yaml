@@ -1,0 +1,13 @@
+# Connectors
+connectors:
+  covid19:
+    covid19who:
+      code: who
+      name: Covid19 WHO Official Website
+      server: "https://covid19.who.int"
+      enable: true
+    covid19goid:
+      code: covid19goid
+      name: Covid19 Indonesia Official Website
+      server: "https://data.covid19.go.id"
+      enable: true
