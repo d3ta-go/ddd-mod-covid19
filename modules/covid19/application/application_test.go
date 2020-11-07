@@ -63,7 +63,7 @@ func TestNewCovid19App(t *testing.T) {
 				args:    args{h: h},
 				want:    &Covid19App{handler: h},
 				wantErr: false,
-			}
+			},
 		}
 
 		for _, tt := range tests {
