@@ -2,6 +2,7 @@ package service
 
 import (
 	"encoding/json"
+	"fmt"
 	"testing"
 
 	"github.com/d3ta-go/ddd-mod-covid19/modules/covid19/application/dto"
@@ -10,14 +11,18 @@ import (
 	"github.com/d3ta-go/system/system/handler"
 	"github.com/d3ta-go/system/system/identity"
 	"github.com/d3ta-go/system/system/initialize"
+	"github.com/spf13/viper"
 )
 
-func newConfig(t *testing.T) (*config.Config, error) {
-	c, _, err := config.NewConfig("../../../../conf")
+func newConfig(t *testing.T) (*config.Config, *viper.Viper, error) {
+	c, v, err := config.NewConfig("../../../../conf")
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
-	return c, nil
+	if !c.CanRunTest() {
+		panic(fmt.Sprintf("Cannot Run Test on env `%s`, allowed: %v", c.Environment.Stage, c.Environment.RunTestEnvironment))
+	}
+	return c, v, nil
 }
 
 func newCurrentSvc(t *testing.T) (*CurrentSvc, *handler.Handler, error) {
@@ -26,12 +31,22 @@ func newCurrentSvc(t *testing.T) (*CurrentSvc, *handler.Handler, error) {
 		return nil, nil, err
 	}
 
-	c, err := newConfig(t)
+	c, v, err := newConfig(t)
 	if err != nil {
 		return nil, nil, err
 	}
 
 	h.SetDefaultConfig(c)
+	h.SetViper("config", v)
+
+	// viper for test-data
+	viperTest := viper.New()
+	viperTest.SetConfigType("yaml")
+	viperTest.SetConfigName("test-data")
+	viperTest.AddConfigPath("../../../../conf/data")
+	viperTest.ReadInConfig()
+	h.SetViper("test-data", viperTest)
+
 	if err := initialize.LoadAllDatabaseConnection(h); err != nil {
 		return nil, nil, err
 	}
@@ -74,9 +89,15 @@ func TestCurrentSvc_DisplayCurrentDataByCountry(t *testing.T) {
 		return
 	}
 
+	viper, err := h.GetViper("test-data")
+	if err != nil {
+		t.Errorf("GetViper: %s", err.Error())
+	}
+	testData := viper.GetStringMapString("test-data.covid19.covid19.app-layer.service.display-current-data-by-country")
+
 	req := dto.DisplayCurrentDataByCountryReqDTO{}
-	req.CountryCode = "ID"
-	req.Providers = append(req.Providers, &schema.Provider{Code: "_ALL_"})
+	req.CountryCode = testData["country-code"]
+	req.Providers = append(req.Providers, &schema.Provider{Code: testData["provider-code"]})
 
 	i := newIdentity(h, t)
 
