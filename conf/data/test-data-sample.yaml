@@ -1,0 +1,22 @@
+---
+# Test Data
+test-data:
+  covid19:
+    covid19:
+      app-layer:
+        service:
+          display-current-data-by-country:
+            country-code: ID
+            provider-code: _ALL_
+      infra-layer:
+        adapter:
+          covid19goid:
+            country-code: ID
+            provider-code: COVID19GOID
+          who:
+            country-code: ID
+            provider-code: WHO
+        repo:
+          display-current-data-by-country:
+            country-code: ID
+            provider-code: _ALL_
