@@ -45,7 +45,7 @@ func (br *BaseRepo) GetAdapters() map[string]C19RepoAdapter {
 	return br.c19Adapters
 }
 
-// SelectedAdaptersByProviders is a funtion to select selected adapters from selected providers
+// SelectedAdaptersByProviders is a function to select selected adapters from selected providers
 func (br *BaseRepo) SelectedAdaptersByProviders(providers domSchema.ProviderList) map[string]C19RepoAdapter {
 	tmp := make(map[string]C19RepoAdapter)
 
