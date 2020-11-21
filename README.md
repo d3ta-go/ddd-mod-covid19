@@ -1,4 +1,5 @@
-# ddd-mod-covid19
+# ddd-mod-covid19 ( [![Go Report Card](https://goreportcard.com/badge/github.com/d3ta-go/ddd-mod-covid19)](https://goreportcard.com/report/github.com/d3ta-go/ddd-mod-covid19) )
+
 
 DDD Module: Covid19 (Core Subdomain)
 
